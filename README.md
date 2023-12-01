@@ -3,19 +3,19 @@
 ## Day 1
 
 ```bash
-Benchmark 1: /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2
-  Time (mean ± σ):     941.5 µs ± 135.7 µs    [User: 369.8 µs, System: 672.2 µs]
-  Range (min … max):   798.0 µs … 1528.5 µs    1865 runs
-Benchmark 2: /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2_speed_1
-  Time (mean ± σ):     807.1 µs ± 144.9 µs    [User: 254.7 µs, System: 628.0 µs]
-  Range (min … max):   673.8 µs … 1640.7 µs    1668 runs
-Benchmark 3: /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2_speed_2
-  Time (mean ± σ):     692.2 µs ± 141.7 µs    [User: 242.1 µs, System: 649.2 µs]
-  Range (min … max):   566.4 µs … 1624.4 µs    2138 runs
+Benchmark 1: day_1_2
+  Time (mean ± σ):     960.1 µs ± 137.5 µs    [User: 356.0 µs, System: 665.6 µs]
+  Range (min … max):   802.3 µs … 1522.5 µs    1850 runs
+Benchmark 2: day_1_2_speed_1
+  Time (mean ± σ):     836.7 µs ± 154.8 µs    [User: 266.4 µs, System: 602.2 µs]
+  Range (min … max):   665.1 µs … 1430.3 µs    1913 runs
+Benchmark 3: day_1_2_speed_2
+  Time (mean ± σ):     716.3 µs ± 151.7 µs    [User: 234.8 µs, System: 630.1 µs]
+  Range (min … max):   572.1 µs … 2210.4 µs    2015 runs
 Summary
-  /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2_speed_2 ran
-    1.17 ± 0.32 times faster than /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2_speed_1
-    1.36 ± 0.34 times faster than /home/peristocles/fun/ad2023/advent/target/release-with-debug/deps/advent-db84e2febb37137e day_1_2
+  day_1_2_speed_2 ran
+    1.17 ± 0.33 times faster than day_1_2_speed_1
+    1.34 ± 0.34 times faster than day_1_2
 ```
 meh, can go faster I guess. I still don't know all the intricacies of rust functions
 

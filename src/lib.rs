@@ -158,22 +158,23 @@ mod tests {
             let mut first = 0;
             let mut last = 0;
             let mut i: usize = 0;
+            let line = line.as_bytes();
             while i < line.len() {
                 let rest = &line[i..line.len()];
                 // let rest = line[i..line.len()]; RETURNS A COPY WTF!
                 // REMOVE BRANCHING
-                first = first | (rest.starts_with("one") as u32 * 1);
-                first = first | (rest.starts_with("two") as u32 * 2);
-                first = first | (rest.starts_with("three") as u32 * 3);
-                first = first | (rest.starts_with("four") as u32 * 4);
-                first = first | (rest.starts_with("five") as u32 * 5);
-                first = first | (rest.starts_with("six") as u32 * 6);
-                first = first | (rest.starts_with("seven") as u32 * 7);
-                first = first | (rest.starts_with("eight") as u32 * 8);
-                first = first | (rest.starts_with("nine") as u32 * 9);
-                let chr = line.as_bytes().get(i).unwrap(); // CHARS TOO WTF
+                first = first | (rest.starts_with("one".as_bytes()) as u32 * 1);
+                first = first | (rest.starts_with("two".as_bytes()) as u32 * 2);
+                first = first | (rest.starts_with("three".as_bytes()) as u32 * 3);
+                first = first | (rest.starts_with("four".as_bytes()) as u32 * 4);
+                first = first | (rest.starts_with("five".as_bytes()) as u32 * 5);
+                first = first | (rest.starts_with("six".as_bytes()) as u32 * 6);
+                first = first | (rest.starts_with("seven".as_bytes()) as u32 * 7);
+                first = first | (rest.starts_with("eight".as_bytes()) as u32 * 8);
+                first = first | (rest.starts_with("nine".as_bytes()) as u32 * 9);
+                let chr = line.get(i).unwrap(); // CHARS TOO WTF
                 if chr.is_ascii_digit() {
-                    last = (chr - b'0') as u32;
+                    first = (chr - b'0') as u32;
                 }
                 if first != 0 {
                     break;
@@ -183,16 +184,16 @@ mod tests {
             i = line.len() - 1;
             while i >= 0 {
                 let rest = &line[i..line.len()];
-                last = last | (rest.starts_with("one") as u32 * 1);
-                last = last | (rest.starts_with("two") as u32 * 2);
-                last = last | (rest.starts_with("three") as u32 * 3);
-                last = last | (rest.starts_with("four") as u32 * 4);
-                last = last | (rest.starts_with("five") as u32 * 5);
-                last = last | (rest.starts_with("six") as u32 * 6);
-                last = last | (rest.starts_with("seven") as u32 * 7);
-                last = last | (rest.starts_with("eight") as u32 * 8);
-                last = last | (rest.starts_with("nine") as u32 * 9);
-                let chr = line.as_bytes().get(i).unwrap();
+                last = last | (rest.starts_with("one".as_bytes()) as u32 * 1);
+                last = last | (rest.starts_with("two".as_bytes()) as u32 * 2);
+                last = last | (rest.starts_with("three".as_bytes()) as u32 * 3);
+                last = last | (rest.starts_with("four".as_bytes()) as u32 * 4);
+                last = last | (rest.starts_with("five".as_bytes()) as u32 * 5);
+                last = last | (rest.starts_with("six".as_bytes()) as u32 * 6);
+                last = last | (rest.starts_with("seven".as_bytes()) as u32 * 7);
+                last = last | (rest.starts_with("eight".as_bytes()) as u32 * 8);
+                last = last | (rest.starts_with("nine".as_bytes()) as u32 * 9);
+                let chr = line.get(i).unwrap();
                 if chr.is_ascii_digit() {
                     last = (chr - b'0') as u32;
                 }
