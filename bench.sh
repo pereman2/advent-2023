@@ -5,4 +5,5 @@ output=$(cargo test --profile=release-with-debug --no-run --message-format=json)
 executable_path=$(echo "$output" | jq -r 'select(.profile.test == true) | select(.target.kind[] == "lib") | .executable')
 
 echo $executable_path
-perf record -g --call-graph=dwarf -F 99 hyperfine --warmup 3 "${executable_path} day_1_2" "${executable_path} day_1_2_speed"
+# PERF="perf record -g --call-graph=dwarf -F 99 "
+$PERF hyperfine --warmup 10 "${executable_path} day_1_2" "${executable_path} day_1_2_speed_1" "${executable_path} day_1_2_speed_2"
