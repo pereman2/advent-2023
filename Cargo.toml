@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
+criterion = "0.5.1"
 
 [lib]
 path = "src/lib.rs"
@@ -14,3 +14,9 @@ path = "src/lib.rs"
 [profile.release-with-debug]
 inherits = "release"
 debug = true
+
+
+[[bench]]
+path = "src/lib.rs"
+name = "lib"
+harness = false
