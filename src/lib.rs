@@ -1,5 +1,6 @@
 mod day1;
 mod day2;
+mod day3;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -16,7 +17,7 @@ mod advent {
         sync::Arc,
         thread::{self, JoinHandle, ScopedJoinHandle},
     };
-    fn _read_file(path: String) -> String {
+    pub fn _read_file(path: String) -> String {
         let path = Path::new(&path);
         return read_to_string(&path).unwrap();
     }
@@ -86,7 +87,6 @@ mod advent {
 
     #[inline(never)]
     pub fn day_1_2_speed_1() -> u32 {
-        let contents = _read_file("input_1_1".to_string());
         let mut sum = 0;
         for line in get_input().iter() {
             let mut first = 0;
@@ -297,6 +297,7 @@ mod advent {
         }
         return sum;
     }
+
 }
 
 mod test {
@@ -315,6 +316,14 @@ mod test {
         println!("res {}", day_2_2());
         assert_eq!(day_2_2(), day_2_2_speed_1());
     }
+
+    #[test]
+    fn day_3() {
+        use crate::day3::day3::*;
+        println!("res {}", day_3_1());
+        println!("res {}", day_3_2());
+        // assert_eq!(day_2_2(), day_2_2_speed_1());
+    }
 }
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
@@ -323,16 +332,31 @@ pub fn day_1(c: &mut Criterion) {
     let mut g = c.benchmark_group("day2");
     g.bench_function("day_1_1", |b| b.iter(|| black_box(advent::day_1_2())));
     g.bench_function("day_1_2", |b| b.iter(|| black_box(advent::day_1_2())));
-    g.bench_function("day_1_2_speed_1", |b| b.iter(|| black_box(advent::day_1_2_speed_1())));
-    g.bench_function("day_1_2_speed_2", |b| b.iter(|| black_box(advent::day_1_2_speed_2())));
+    g.bench_function("day_1_2_speed_1", |b| {
+        b.iter(|| black_box(advent::day_1_2_speed_1()))
+    });
+    g.bench_function("day_1_2_speed_2", |b| {
+        b.iter(|| black_box(advent::day_1_2_speed_2()))
+    });
 }
 
 pub fn day_2(c: &mut Criterion) {
     let mut g = c.benchmark_group("day2");
     g.bench_function("day_2_1", |b| b.iter(|| black_box(advent::day_2_2())));
     g.bench_function("day_2_2", |b| b.iter(|| black_box(advent::day_2_2())));
-    g.bench_function("day_2_2_speed_1", |b| b.iter(|| black_box(advent::day_2_2_speed_1())));
+    g.bench_function("day_2_2_speed_1", |b| {
+        b.iter(|| black_box(advent::day_2_2_speed_1()))
+    });
 }
 
-criterion_group!(benches, day_1, day_2);
+pub fn day_3(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day2");
+    g.bench_function("day_3_1", |b| b.iter(|| black_box(crate::day3::day3::day_3_1())));
+    g.bench_function("day_3_2", |b| b.iter(|| black_box(crate::day3::day3::day_3_2())));
+    // g.bench_function("day_2_2_speed_1", |b| {
+    //     b.iter(|| black_box(advent::day_2_2_speed_1()))
+    // });
+}
+
+criterion_group!(benches, day_1, day_2, day_3);
 criterion_main!(benches);
