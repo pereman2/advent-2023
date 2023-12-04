@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -324,6 +325,14 @@ mod test {
         println!("res {}", day_3_2());
         // assert_eq!(day_2_2(), day_2_2_speed_1());
     }
+
+    #[test]
+    fn day_4() {
+        use crate::day4::*;
+        println!("res {}", day_4_1());
+        println!("res {}", day_4_2());
+        // assert_eq!(day_2_2(), day_2_2_speed_1());
+    }
 }
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
@@ -358,5 +367,15 @@ pub fn day_3(c: &mut Criterion) {
     // });
 }
 
-criterion_group!(benches, day_1, day_2, day_3);
+pub fn day_4(c: &mut Criterion) {
+    use crate::day4::*;
+    let mut g = c.benchmark_group("day2");
+    g.bench_function("day_4_1", |b| b.iter(|| black_box(day_4_1())));
+    g.bench_function("day_4_2", |b| b.iter(|| black_box(day_4_2())));
+    // g.bench_function("day_2_2_speed_1", |b| {
+    //     b.iter(|| black_box(advent::day_2_2_speed_1()))
+    // });
+}
+
+criterion_group!(benches, day_1, day_2, day_3, day_4);
 criterion_main!(benches);
