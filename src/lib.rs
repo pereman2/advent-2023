@@ -370,11 +370,11 @@ pub fn day_3(c: &mut Criterion) {
 pub fn day_4(c: &mut Criterion) {
     use crate::day4::*;
     let mut g = c.benchmark_group("day2");
-    g.bench_function("day_4_1", |b| b.iter(|| black_box(day_4_1())));
+    // g.bench_function("day_4_1", |b| b.iter(|| black_box(day_4_1())));
     g.bench_function("day_4_2", |b| b.iter(|| black_box(day_4_2())));
-    // g.bench_function("day_2_2_speed_1", |b| {
-    //     b.iter(|| black_box(advent::day_2_2_speed_1()))
-    // });
+    g.bench_function("day_4_2_speed_1", |b| {
+        b.iter(|| black_box(day_4_2_speed_1()))
+    });
 }
 
 criterion_group!(benches, day_1, day_2, day_3, day_4);
