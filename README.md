@@ -40,4 +40,12 @@ day2/day_4_2            time:   [211.38 µs 211.58 µs 211.93 µs]
 day2/day_4_2_speed_1    time:   [174.05 µs 174.64 µs 175.27 µs]
 ```
 
+Can be faster with 128 bit integer bitset instead of hashmap
+
+## Day 5
+
+```
+day2/day_5_1            time:   [14.013 µs 14.078 µs 14.153 µs]
+day2/day_5_2            time:   [18.758 µs 18.763 µs 18.768 µs]
+```
 
