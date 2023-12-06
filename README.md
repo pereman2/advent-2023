@@ -49,3 +49,11 @@ day2/day_5_1            time:   [14.013 µs 14.078 µs 14.153 µs]
 day2/day_5_2            time:   [18.758 µs 18.763 µs 18.768 µs]
 ```
 
+## Day 6
+```
+day2/day_6_1            time:   [188.84 ns 188.91 ns 188.99 ns]
+day2/day_6_2            time:   [148.68 ns 149.27 ns 150.14 ns]
+```
+
+
+meh, input is small. Simd could have been used with bigger inputs.
