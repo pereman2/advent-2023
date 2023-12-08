@@ -55,5 +55,12 @@ day2/day_6_1            time:   [188.84 ns 188.91 ns 188.99 ns]
 day2/day_6_2            time:   [148.68 ns 149.27 ns 150.14 ns]
 ```
 
-
 meh, input is small. Simd could have been used with bigger inputs.
+
+
+## Day 7
+
+```
+day7/day_7_1            time:   [624.36 µs 641.26 µs 660.97 µs]
+day7/day_7_2            time:   [572.86 µs 578.95 µs 586.74 µs]
+```
