@@ -64,3 +64,11 @@ meh, input is small. Simd could have been used with bigger inputs.
 day7/day_7_1            time:   [624.36 µs 641.26 µs 660.97 µs]
 day7/day_7_2            time:   [572.86 µs 578.95 µs 586.74 µs]
 ```
+
+
+## Day 8
+
+```
+day8/day_8_1            time:   [22.704 ms 22.921 ms 23.175 ms]
+day8/day_8_2            time:   [22.816 ms 22.990 ms 23.192 ms]
+```
