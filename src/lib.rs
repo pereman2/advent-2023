@@ -6,6 +6,7 @@ pub mod day5;
 pub mod day6;
 pub mod day7;
 pub mod day8;
+pub mod day9;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -302,7 +303,6 @@ mod advent {
         }
         return sum;
     }
-
 }
 
 mod test {
@@ -370,6 +370,13 @@ mod test {
         // assert_eq!(day_2_2(), day_2_2_speed_1());
     }
 
+    #[test]
+    fn day_9() {
+        use crate::day9::{day_9_1, day_9_2};
+        println!("res {}", day_9_1());
+        println!("res {}", day_9_2());
+        // assert_eq!(day_2_2(), day_2_2_speed_1());
+    }
 }
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
@@ -401,8 +408,12 @@ pub fn day_2(c: &mut Criterion) {
 
 pub fn day_3(c: &mut Criterion) {
     let mut g = c.benchmark_group("day2");
-    g.bench_function("day_3_1", |b| b.iter(|| black_box(crate::day3::day3::day_3_1())));
-    g.bench_function("day_3_2", |b| b.iter(|| black_box(crate::day3::day3::day_3_2())));
+    g.bench_function("day_3_1", |b| {
+        b.iter(|| black_box(crate::day3::day3::day_3_1()))
+    });
+    g.bench_function("day_3_2", |b| {
+        b.iter(|| black_box(crate::day3::day3::day_3_2()))
+    });
     // g.bench_function("day_2_2_speed_1", |b| {
     //     b.iter(|| black_box(advent::day_2_2_speed_1()))
     // });
@@ -440,10 +451,20 @@ pub fn day_7(c: &mut Criterion) {
 pub fn day_8(c: &mut Criterion) {
     let mut g = c.benchmark_group("day8");
     use crate::day8::*;
-    g.bench_function("day_8_1", |b| b.iter(|| black_box(day_8_1())));
+    // g.bench_function("day_8_1", |b| b.iter(|| black_box(day_8_1())));
     g.bench_function("day_8_2", |b| b.iter(|| black_box(day_8_2())));
+    g.bench_function("day_8_2_speed_1", |b| {
+        b.iter(|| black_box(day_8_2_speed_1()))
+    });
 }
 
+pub fn day_9(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day8");
+    use crate::day9::*;
+    g.bench_function("day_9_1", |b| b.iter(|| black_box(day_9_1())));
+    g.bench_function("day_9_2", |b| b.iter(|| black_box(day_9_2())));
+    // g.bench_function("day_9_2_speed_1", |b| b.iter(|| black_box(day_8_2_speed_1())));
+}
 
-criterion_group!(benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8);
+criterion_group!(benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9);
 criterion_main!(benches);
