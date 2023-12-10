@@ -61,21 +61,21 @@ meh, input is small. Simd could have been used with bigger inputs.
 ## Day 7
 
 ```
-day7/day_7_1            time:   [624.36 µs 641.26 µs 660.97 µs]
-day7/day_7_2            time:   [572.86 µs 578.95 µs 586.74 µs]
+day7/day_7_1            time:   [337.89 µs 339.93 µs 342.61 µs]
+day7/day_7_2            time:   [301.22 µs 302.69 µs 304.38 µs]
 ```
 
 
 ## Day 8
 
 ```
-day8/day_8_1            time:   [22.704 ms 22.921 ms 23.175 ms]
-day8/day_8_2            time:   [22.816 ms 22.990 ms 23.192 ms]
+day8/day_8_1            time:   [285.32 µs 285.77 µs 286.20 µs]
+day8/day_8_2            time:   [351.99 µs 352.47 µs 353.02 µs]
 ```
 
 ## Day 9
 
 ```
-day8/day_9_1            time:   [853.91 µs 859.71 µs 866.86 µs]
-day8/day_9_2            time:   [885.02 µs 901.80 µs 920.19 µs]
+day9/day_9_1            time:   [226.12 µs 227.36 µs 228.90 µs]
+day9/day_9_2            time:   [230.24 µs 231.55 µs 232.93 µs]
 ```

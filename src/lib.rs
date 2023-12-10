@@ -451,11 +451,8 @@ pub fn day_7(c: &mut Criterion) {
 pub fn day_8(c: &mut Criterion) {
     let mut g = c.benchmark_group("day8");
     use crate::day8::*;
-    // g.bench_function("day_8_1", |b| b.iter(|| black_box(day_8_1())));
+    g.bench_function("day_8_1", |b| b.iter(|| black_box(day_8_1())));
     g.bench_function("day_8_2", |b| b.iter(|| black_box(day_8_2())));
-    g.bench_function("day_8_2_speed_1", |b| {
-        b.iter(|| black_box(day_8_2_speed_1()))
-    });
 }
 
 pub fn day_9(c: &mut Criterion) {
