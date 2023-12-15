@@ -2,6 +2,7 @@ mod day1;
 pub mod day10;
 pub mod day11;
 pub mod day12;
+pub mod day13;
 mod day2;
 mod day3;
 mod day4;
@@ -383,8 +384,8 @@ mod test {
     #[test]
     fn day_10() {
         use crate::day10::{day_10_1, day_10_2};
-        println!("res {}", day_10_1());
-        println!("res {}", day_10_2());
+        // println!("res {}", day_10_1());
+        // println!("res {}", day_10_2());
         // assert_eq!(day_2_2(), day_2_2_speed_1());
     }
 
@@ -402,6 +403,13 @@ mod test {
         println!("res {}", day_12_1());
         println!("res {}", day_12_2());
         // assert_eq!(day_2_2(), day_2_2_speed_1());
+    }
+
+    #[test]
+    fn day_13() {
+        use crate::day13::*;
+        println!("res {}", day_13_1());
+        println!("res {}", day_13_2());
     }
 }
 
@@ -513,7 +521,16 @@ pub fn day_12(c: &mut Criterion) {
     // g.bench_function("day_9_2_speed_1", |b| b.iter(|| black_box(day_8_2_speed_1())));
 }
 
+pub fn day_13(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day8");
+    use crate::day13::*;
+    g.bench_function("day_13_1", |b| b.iter(|| black_box(day_13_1())));
+    g.bench_function("day_13_2", |b| b.iter(|| black_box(day_13_2())));
+    // g.bench_function("day_9_2_speed_1", |b| b.iter(|| black_box(day_8_2_speed_1())));
+}
+
 criterion_group!(
-    benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12
+    benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12,
+    day_13
 );
 criterion_main!(benches);
