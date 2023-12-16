@@ -1,8 +1,4 @@
 mod day1;
-pub mod day10;
-pub mod day11;
-pub mod day12;
-pub mod day13;
 mod day2;
 mod day3;
 mod day4;
@@ -11,6 +7,11 @@ pub mod day6;
 pub mod day7;
 pub mod day8;
 pub mod day9;
+pub mod day10;
+pub mod day11;
+pub mod day12;
+pub mod day13;
+pub mod day14;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -411,6 +412,13 @@ mod test {
         println!("res {}", day_13_1());
         println!("res {}", day_13_2());
     }
+
+    #[test]
+    fn day_14() {
+        use crate::day14::*;
+        println!("res {}", day_14_1());
+        println!("res {}", day_14_2());
+    }
 }
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
@@ -490,7 +498,7 @@ pub fn day_8(c: &mut Criterion) {
 }
 
 pub fn day_9(c: &mut Criterion) {
-    let mut g = c.benchmark_group("day8");
+    let mut g = c.benchmark_group("day9");
     use crate::day9::*;
     g.bench_function("day_9_1", |b| b.iter(|| black_box(day_9_1())));
     g.bench_function("day_9_2", |b| b.iter(|| black_box(day_9_2())));
@@ -498,7 +506,7 @@ pub fn day_9(c: &mut Criterion) {
 }
 
 pub fn day_10(c: &mut Criterion) {
-    let mut g = c.benchmark_group("day8");
+    let mut g = c.benchmark_group("day10");
     use crate::day10::*;
     g.bench_function("day_10_1", |b| b.iter(|| black_box(day_10_1())));
     g.bench_function("day_10_2", |b| b.iter(|| black_box(day_10_2())));
@@ -506,7 +514,7 @@ pub fn day_10(c: &mut Criterion) {
 }
 
 pub fn day_11(c: &mut Criterion) {
-    let mut g = c.benchmark_group("day8");
+    let mut g = c.benchmark_group("day11");
     use crate::day11::*;
     g.bench_function("day_11_1", |b| b.iter(|| black_box(day_11_1())));
     g.bench_function("day_11_2", |b| b.iter(|| black_box(day_11_2())));
@@ -514,7 +522,7 @@ pub fn day_11(c: &mut Criterion) {
 }
 
 pub fn day_12(c: &mut Criterion) {
-    let mut g = c.benchmark_group("day8");
+    let mut g = c.benchmark_group("day12");
     use crate::day12::*;
     g.bench_function("day_12_1", |b| b.iter(|| black_box(day_12_1())));
     g.bench_function("day_12_2", |b| b.iter(|| black_box(day_12_2())));
@@ -522,15 +530,24 @@ pub fn day_12(c: &mut Criterion) {
 }
 
 pub fn day_13(c: &mut Criterion) {
-    let mut g = c.benchmark_group("day8");
+    let mut g = c.benchmark_group("day13");
     use crate::day13::*;
     g.bench_function("day_13_1", |b| b.iter(|| black_box(day_13_1())));
     g.bench_function("day_13_2", |b| b.iter(|| black_box(day_13_2())));
     // g.bench_function("day_9_2_speed_1", |b| b.iter(|| black_box(day_8_2_speed_1())));
 }
 
+pub fn day_14(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day14");
+    use crate::day14::*;
+    g.bench_function("day_14_1", |b| b.iter(|| black_box(day_14_1())));
+    g.bench_function("day_14_2", |b| b.iter(|| black_box(day_14_2())));
+    // g.bench_function("day_9_2_speed_1", |b| b.iter(|| black_box(day_8_2_speed_1())));
+}
+
+
 criterion_group!(
     benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12,
-    day_13
+    day_13, day_14
 );
 criterion_main!(benches);
