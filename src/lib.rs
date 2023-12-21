@@ -15,6 +15,8 @@ pub mod day14;
 pub mod day15;
 pub mod day16;
 pub mod day17;
+pub mod day18;
+pub mod day19;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -446,6 +448,15 @@ mod test {
         let res2 = day_17_2();
         println!("res {}", res2);
         // assert!(res2 == day_17_2_speed_1());
+    }
+
+    #[test]
+    fn day_18() {
+        use crate::day18::*;
+        println!("res {}", day_18_1());
+        let res2 = day_18_2();
+        println!("res {}", res2);
+        // assert!(res2 == day_18_2_speed_1());
     }
 
 }
