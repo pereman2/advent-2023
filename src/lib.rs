@@ -1,7 +1,7 @@
-mod day1;
-mod day2;
-mod day3;
-mod day4;
+pub mod day1;
+pub mod day2;
+pub mod day3;
+pub mod day4;
 pub mod day5;
 pub mod day6;
 pub mod day7;
@@ -17,7 +17,9 @@ pub mod day16;
 pub mod day17;
 pub mod day18;
 pub mod day19;
-mod day20;
+pub mod day20;
+pub mod day21;
+mod day22;
 
 mod advent {
     const NUMBERS_NAMES: [&str; 9] = [
@@ -478,6 +480,24 @@ mod test {
         // assert!(res2 == day_20_2_speed_1());
     }
 
+    #[test]
+    fn day_21() {
+        use crate::day21::*;
+        println!("res {}", day_21_1());
+        let res2 = day_21_2();
+        println!("res {}", res2);
+        // assert!(res2 == day_21_2_speed_1());
+    }
+
+    #[test]
+    fn day_22() {
+        use crate::day22::*;
+        println!("res {}", day_22_1());
+        let res2 = day_22_2();
+        println!("res {}", res2);
+        // assert!(res2 == day_22_2_speed_1());
+    }
+
 }
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
@@ -653,8 +673,25 @@ pub fn day_20(c: &mut Criterion) {
     // g.bench_function("day_20_2_speed_1", |b| b.iter(|| black_box(day_20_2_speed_1())));
 }
 
+pub fn day_21(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day21");
+    use crate::day21::*;
+    g.bench_function("day_21_1", |b| b.iter(|| black_box(day_21_1())));
+    g.bench_function("day_21_2", |b| b.iter(|| black_box(day_21_2())));
+    // g.bench_function("day_21_2_speed_1", |b| b.iter(|| black_box(day_21_2_speed_1())));
+}
+
+pub fn day_22(c: &mut Criterion) {
+    let mut g = c.benchmark_group("day22");
+    use crate::day22::*;
+    g.bench_function("day_22_1", |b| b.iter(|| black_box(day_22_1())));
+    g.bench_function("day_22_2", |b| b.iter(|| black_box(day_22_2())));
+    // g.bench_function("day_22_2_speed_1", |b| b.iter(|| black_box(day_22_2_speed_1())));
+}
+
+
 criterion_group!(
     benches, day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12,
-    day_13, day_14, day_15, day_16, day_17, day_18, day_19, day_20
+    day_13, day_14, day_15, day_16, day_17, day_18, day_19, day_20, day_21, day_22
 );
 criterion_main!(benches);
